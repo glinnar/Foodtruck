@@ -17,9 +17,9 @@ ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Meny(
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-`name` varchar(100),
-FOERIGN KEY(name)REFERENCES Foodtruck(name),
-Primaty KEY(name)
+`Mname` varchar(100),
+Foreign Key (Mname) REFERENCES Foodtruck(name),
+Primary KEY(id,Mname)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 SELECT * FROM Foodtruck;

@@ -41,6 +41,12 @@ if (isset($_POST['delete'])) {
 }
 //Update Foodtruck
 if(isset($_POST['update'])){
+  $name = clear_input($_POST['name']);
+  $owner = clear_input($_POST['owner']);
+  $description = clear_input($_POST['description']);
+  $open = clear_input($_POST['open']);
+  $location = clear_input($_POST['location']);
+  $homepage = clear_input($_POST['homepage']);
   $querystring= 'UPDATE Foodtruck SET id=:id,name=:name,owner=:owner,
   description=:description,open=:open,location=:location,homepage=:homepage';
   $stmt =$pdo->prepare($querystring);
