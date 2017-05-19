@@ -44,9 +44,6 @@ include_once "functions.php";
         <?php } ?>
       </table>
     </div>
-
-
-  <p>hejj</p>
   <footer>
   <h1>Find a foodtruck</h1>
   </footer>
