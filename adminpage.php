@@ -2,34 +2,7 @@
 include_once "db.php";
 include_once "functions.php";
 
-$error = [];
 
-// Adding new Foodtruck
-if (isset($_POST['add'])) {
-  if(empty($_POST["name"])) {
-    $error['name'] = "Namn is required";
-  }
-  else {
-    $name = clear_input($_POST['name']);
-    $owner = clear_input($_POST['owner']);
-    $description = clear_input($_POST['description']);
-    $open = clear_input($_POST['open']);
-    $location = clear_input($_POST['location']);
-    $homepage = clear_input($_POST['homepage']);
-
-    $querystring = 'INSERT INTO foodtruck (name,owner,description,open,location,homepage)
-     VALUES (:name,:owner,:description,:open,:location,:homepage)';
-    $stmt = $pdo->prepare($querystring);
-      $stmt->bindParam(':name', $name);
-      $stmt->bindParam(':owner', $owner);
-      $stmt->bindParam(':description', $description);
-      $stmt->bindParam(':open', $open);
-      $stmt->bindParam(':location', $location);
-      $stmt->bindParam(':homepage', $homepage);
-      $stmt->execute();
-    header('Location: adminpage.php');
-  }
-}
 
 // Deleting new Foodtruck
 if (isset($_POST['delete'])) {
@@ -73,33 +46,12 @@ if(isset($_POST['update'])){
 
     <nav>
       <ul class="menu">
-        <li><a href="index.php">Visa Trucks</a></li>
-        <li><a href="adminpage.php"> Modifiera Trucks</a></li>
+        <li><a href="adminpage.php">Översikt</a></li>
+        <li><a href="foodtruck_form.php">Lägg till</a></li>
       </ul>
     </nav>
 
     <div id="content">
-        <h2>Lägg till Foodtruck</h2>
-      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <input type="text"name="name" placeholder="Namn"> <?php if (isset($error['name'])) { echo $error['name']; } ?>
-        <input type="text"name="owner" placeholder="Ägare"> <?php if (isset($error['owner'])) { echo $error['owner']; } ?>
-        <input type="text"name="description" placeholder="Beskrivning"><?php if (isset($error['description'])) { echo $error['description']; } ?>
-        <input type="text"name="open" placeholder="Öppet"> <?php if (isset($error['open'])) { echo $error['open']; } ?>
-        <input type="text"name="location" placeholder="Plats"> <?php if (isset($error['location'])) { echo $error['location']; } ?>
-        <input type="text"name="homepage" placeholder="Hemsida"> <?php if (isset($error['webpage'])) { echo $error['webpage']; } ?>
-        <input type="submit" name="add" value="Skapa Foodtruck">
-      </form>
-      <h2>Uppdatera Foodtruck</h2>
-      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <input type="text"name="name" placeholder="Namn"> <?php if (isset($error['name'])) { echo $error['name']; } ?>
-        <input type="text"name="owner" placeholder="Ägare"> <?php if (isset($error['owner'])) { echo $error['owner']; } ?>
-        <input type="text"name="description" placeholder="Beskrivning"><?php if (isset($error['description'])) { echo $error['description']; } ?>
-        <input type="text"name="open" placeholder="Öppet"> <?php if (isset($error['open'])) { echo $error['open']; } ?>
-        <input type="text"name="location" placeholder="Plats"> <?php if (isset($error['location'])) { echo $error['location']; } ?>
-        <input type="text"name="homepage" placeholder="Hemsida"> <?php if (isset($error['webpage'])) { echo $error['webpage']; } ?>
-        <input type="submit" name="update" value="Uppdatera">
-      </form>
-
       <table border="1">
         <tr>
           <th>Namn</th>
@@ -108,6 +60,7 @@ if(isset($_POST['update'])){
           <th>Öppet</th>
           <th>Plats</th>
           <th>Webpage</th>
+          <th>Update</th>
           <th>Delete</th>
         </tr>
         <?php foreach ($pdo->query('SELECT * FROM Foodtruck') as $row) { ?>
@@ -118,11 +71,12 @@ if(isset($_POST['update'])){
           <td><?php echo $row['open']; ?></td>
           <td><?php echo $row['location']; ?></td>
           <td><?php echo $row['homepage']; ?></td>
-
+          <td class="fix">
+            <a href="foodtruck_form.php?id=<?php echo $row['id']; ?>">Update</a>
           <td class="fix">
             <form action="adminpage.php" method='post'>
             <input type='hidden' name='id' value='<?php echo $row['id']; ?>'/>
-            <input type='submit'  name='delete' value='Delete'/>
+            <input type='submit'id="delete" name='delete' value='Delete'/>
             </form>
           </td>
         </tr>
@@ -134,5 +88,7 @@ if(isset($_POST['update'])){
       <h1>Find a foodtruck</h1>
     </footer>
   </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script type="text/javascript" src="JS/funcs.js"></script>
 </body>
 </html>

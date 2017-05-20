@@ -16,10 +16,7 @@ include_once "functions.php";
 
     </header>
 <nav>
-<ul class="menu">
-  <li><a href="#">Visa Trucks</a></li>
-  <li><a href="adminpage.php"> Modifiera Trucks</a></li>
-</ul>
+
 </nav>
     <div id="content">
       <h2>Foodtrucks</h2>

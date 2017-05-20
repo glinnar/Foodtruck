@@ -22,6 +22,12 @@ Foreign Key (Mname) REFERENCES Foodtruck(name),
 Primary KEY(id,Mname)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
+CREATE TABLE Food(
+`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+`fname` varchar(100),
+`price` char(10),
+Primary KEY(id)
+)
 SELECT * FROM Foodtruck;
 
 
