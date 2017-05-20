@@ -3,12 +3,13 @@ include_once "db.php";
 include_once "functions.php";
 
 $error = [];
+// Get Row by ID
 if(isset($_GET['id'])){
   $query = "SELECT * FROM Foodtruck WHERE id=:id";
-  $smtm = $pdo->prepare($query);
-  $smtm->bindParam(':id', $_GET['id']);
-  $smtm->execute();
-  $result = $smtm->fetchAll();
+  $stmt = $pdo->prepare($query);
+  $stmt->bindParam(':id', $_GET['id']);
+  $stmt->execute();
+  $result = $stmt->fetchAll();
 }
 // Adding new Foodtruck
 if (isset($_POST['add'])) {
@@ -88,6 +89,7 @@ if(isset($_POST['update'])){
       <ul class="menu">
         <li><a href="index.php">Översikt</a></li>
         <li><a href="foodtruck_form.php">Lägg till</a></li>
+            <li><a href="add_menu.php">Lägg till</a></li>
       </ul>
     </nav>
 

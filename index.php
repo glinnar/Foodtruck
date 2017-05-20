@@ -48,6 +48,7 @@ if(isset($_POST['update'])){
       <ul class="menu">
         <li><a href="index.php">Översikt</a></li>
         <li><a href="foodtruck_form.php">Lägg till</a></li>
+            <li><a href="add_menu.php">Lägg till</a></li>
       </ul>
     </nav>
 
@@ -82,6 +83,25 @@ if(isset($_POST['update'])){
         </tr>
         <?php } ?>
       </table>
+
+      <table border="1">
+        <tr>
+          <th>Menu</th>
+          <?php foreach ($pdo->query('SELECT * FROM Menu') as $row) { ?>
+          <tr>
+            <td><?php echo $row['mname']; ?></td>
+        </tr>
+        <td class="fix">
+          <a href="add_menu.php?id=<?php echo $row['id']; ?>">Update</a>
+         <td class="fix">
+          <form action="index.php" method='post'>
+          <input type='hidden' name='id' value='<?php echo $row['id']; ?>'/>
+          <input type='submit'id="delete" name='delete' value='Delete'/>
+          </form>
+        </td>
+      </tr>
+      <?php } ?>
+    </table>
     </div>
 
     <footer>

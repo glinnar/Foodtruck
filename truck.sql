@@ -2,6 +2,12 @@ drop database truck;
 create database truck;
 USE truck;
 
+CREATE TABLE Menu(
+`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+`mname` varchar(100),
+Primary KEY(`id`,`mname`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
+
 CREATE TABLE Foodtruck(
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 `name` varchar(100),
@@ -11,16 +17,8 @@ CREATE TABLE Foodtruck(
 `location` varchar(100),
 `homepage` varchar(100),
 Primary KEY(`id`)
-
 ) 
 ENGINE=INNODB DEFAULT CHARSET=utf8;
-
-CREATE TABLE Meny(
-`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-`Mname` varchar(100),
-Foreign Key (Mname) REFERENCES Foodtruck(name),
-Primary KEY(id,Mname)
-)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Food(
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -29,5 +27,6 @@ CREATE TABLE Food(
 Primary KEY(id)
 )
 SELECT * FROM Foodtruck;
+SELECT * FROM Menu;
 
 
