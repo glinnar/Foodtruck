@@ -33,7 +33,7 @@ if(isset($_POST['update'])){
     $stmt =$pdo->prepare($querystring);
     $stmt ->bindParam(':mname',$mname);
     $stmt->execute();
-        header('Location:index.php');
+        header('Location: index.php');
   }
 
  ?>

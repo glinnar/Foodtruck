@@ -70,7 +70,7 @@ if(isset($_POST['update'])){
   $stmt->bindParam(':location', $location);
   $stmt->bindParam(':homepage', $homepage);
   $stmt->execute();
-  header('Location: index.php');
+  header('Location:index.php');
 }
 
 ?>
