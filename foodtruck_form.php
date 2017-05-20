@@ -69,7 +69,7 @@ if(isset($_POST['update'])){
   $stmt->bindParam(':location', $location);
   $stmt->bindParam(':homepage', $homepage);
   $stmt->execute();
-  header('Location: adminpage.php');
+  header('Location: index.php');
 }
 
 ?>
@@ -86,7 +86,7 @@ if(isset($_POST['update'])){
 
     <nav>
       <ul class="menu">
-        <li><a href="adminpage.php">Översikt</a></li>
+        <li><a href="index.php">Översikt</a></li>
         <li><a href="foodtruck_form.php">Lägg till</a></li>
       </ul>
     </nav>
