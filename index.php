@@ -20,6 +20,13 @@ if (isset($_POST['delete'])) {
   $stmt->execute();
   header('Location: index.php');
 }
+if(isset($_POST['delete'])){
+  $querystring='DELETE FROM Food WHERE id=:id';
+  $stmt=$pdo->prepare($querystring);
+  $stmt->bindParam(':id',$_POST['id']);
+  $stmt->execute();
+  header('Location:index.php');
+}
 
 ?>
 <html lang="sv">
@@ -35,9 +42,10 @@ if (isset($_POST['delete'])) {
 
     <nav>
       <ul class="menu">
-        <li><a href="index.php">Översikt</a></li>
-        <li><a href="foodtruck_form.php">Lägg till</a></li>
-            <li><a href="add_menu.php">Lägg till</a></li>
+        <li><a href="index.php">Start</a></li>
+        <li><a href="foodtruck_form.php">Skapa Foodtruck</a></li>
+            <li><a href="add_menu.php">Skapa Meny</a></li>
+                <li><a href="add_dish.php">Skapa rätt</a></li>
       </ul>
     </nav>
 
@@ -96,8 +104,33 @@ if (isset($_POST['delete'])) {
       </tr>
       <?php } ?>
     </table>
-    </div>
 
+<table border="1">
+  <tr>
+    <th>Namn</th>
+    <th>Beskrivning</th>
+    <th>Price</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  <?php foreach ($pdo->query('SELECT * FROM Food')as $row) { ?>
+    <tr>
+    <td><?php echo $row['fname'];?></td>
+    <td><?php echo $row['fdescription'];?></td>
+    <td><?php echo $row['price'];?></td>
+    <td class="fix">
+      <a href="add_menu.php?id=<?php echo $row['id']; ?>">Update</a>
+    </td>
+     <td class="fix">
+      <form action="index.php" method='post'>
+      <input type='hidden' name='id' value='<?php echo $row['id']; ?>'/>
+      <input type='submit'id="delete" class="delstyle" name='delete' value='Delete'/>
+      </form>
+    </td>
+      <?php } ?>
+    </table>
+
+    </tr>
     <footer>
       <h1>Find a foodtruck</h1>
     </footer>

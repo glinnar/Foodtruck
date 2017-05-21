@@ -4,6 +4,7 @@ include_once "functions.php";
 
 
 $error=[];
+// Get menu row by ID
 if(isset($_GET['id'])){
   $query="SELECT * FROM Menu WHERE id=:id";
   $stmt = $pdo->prepare($query);
@@ -11,9 +12,10 @@ if(isset($_GET['id'])){
   $stmt->execute();
   $result = $stmt->fetchAll();
 }
+
 //Adding new Menu
 if(isset($_POST['add'])){
-  if(empty($_POST["mname"])){
+  if(empty($_POST['mname'])){
     $error['mname']= "Name is required";
   }
   else{
@@ -26,6 +28,7 @@ if(isset($_POST['add'])){
   }
 }
 
+
 //Update new Menu
 if(isset($_POST['update'])){
   $mname = clear_input($_POST['mname']);
@@ -35,6 +38,7 @@ if(isset($_POST['update'])){
     $stmt->execute();
         header('Location: index.php');
   }
+
 
  ?>
 
@@ -50,21 +54,25 @@ if(isset($_POST['update'])){
      <header></header>
      <nav>
        <ul class="menu">
-         <li><a href="index.php">Översikt</a></li>
-         <li><a href="foodtruck_form.php">Lägg till</a></li>
-            <li><a href="add_menu.php">Lägg till</a></li>
+         <li><a href="index.php">Start</a></li>
+         <li><a href="foodtruck_form.php">Skapa Foodtruck</a></li>
+            <li><a href="add_menu.php">Skapa Meny</a></li>
+              <li><a href="add_dish.php">Skapa rätt</a></li>
        </ul>
      </nav>
-     <div id="content">
-<form action="add_menu.php" method="post" >
-    <label for="name">Name</label>
+<div id="content">
+
+  <form action="add_menu.php" method="post">
+    <label for="name">Menunamn</label>
     <input type="text" id="mname" name="mname" value="<?php if(isset($result)) { echo $result['0']['mname']; } ?>"/>
     <?php if(isset($_GET['id'])) { ?>
     <input type="submit" name="update" value="Update">
     <?php } else { ?>
     <input type="submit" name="add" value="Add">
     <?php } ?>
-</form>
+  </form>
+
+
 </div>
 <footer>
 <h1>Find a foodtruck</h1>

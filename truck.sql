@@ -23,10 +23,12 @@ ENGINE=INNODB DEFAULT CHARSET=utf8;
 CREATE TABLE Food(
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 `fname` varchar(100),
+`fdescription` varchar(100),	
 `price` char(10),
-Primary KEY(id)
-)
+Primary KEY(`id`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
+
 SELECT * FROM Foodtruck;
 SELECT * FROM Menu;
-
+SELECT * FROM Food;
 

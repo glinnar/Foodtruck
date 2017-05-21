@@ -82,14 +82,14 @@ if(isset($_POST['update'])){
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-  <div id="wrapper">
+<div id="wrapper">
     <header></header>
 
     <nav>
       <ul class="menu">
-        <li><a href="index.php">Översikt</a></li>
-        <li><a href="foodtruck_form.php">Lägg till</a></li>
-            <li><a href="add_menu.php">Lägg till</a></li>
+        <li><a href="index.php">Start</a></li>
+        <li><a href="foodtruck_form.php">Skapa Foodtruck</a></li>
+            <li><a href="add_menu.php">Skapa Meny</a></li>
       </ul>
     </nav>
 
