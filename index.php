@@ -128,9 +128,10 @@ if(isset($_POST['delete'])){
       </form>
     </td>
       <?php } ?>
+    </tr>
     </table>
 
-    </tr>
+
     <footer>
       <h1>Find a foodtruck</h1>
     </footer>

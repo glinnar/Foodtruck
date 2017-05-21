@@ -39,7 +39,6 @@ if(isset($_POST['update'])){
         header('Location: index.php');
   }
 
-
  ?>
 
  <html lang="sv">
@@ -63,7 +62,7 @@ if(isset($_POST['update'])){
 <div id="content">
 
   <form action="add_menu.php" method="post">
-    <label for="name">Menunamn</label>
+    <label for="mname">Menunamn</label>
     <input type="text" id="mname" name="mname" value="<?php if(isset($result)) { echo $result['0']['mname']; } ?>"/>
     <?php if(isset($_GET['id'])) { ?>
     <input type="submit" name="update" value="Update">
