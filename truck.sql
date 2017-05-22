@@ -29,8 +29,9 @@ Primary KEY(`id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 INSERT INTO Food(fname,fdescription,price)
-    VALUES(fname,fdescription,price);
+    VALUES('ss','ff','gg');
+
 SELECT * FROM Foodtruck;
 SELECT * FROM Menu;
-SELECT * FROM Food;
+<SELECT * FROM Food;
 

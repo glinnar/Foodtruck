@@ -14,17 +14,17 @@ if (isset($_POST['delete'])) {
 }
 
 if (isset($_POST['delete'])) {
-  $querystring = 'DELETE FROM Menu WHERE id = :id';
-  $stmt = $pdo->prepare($querystring);
-  $stmt->bindParam(':id', $_POST['id']);
-  $stmt->execute();
+  $querystring2 = 'DELETE FROM Menu WHERE id = :id';
+  $stmt2 = $pdo->prepare($querystring2);
+  $stmt2->bindParam(':id', $_POST['id']);
+  $stmt2->execute();
   header('Location: index.php');
 }
 if(isset($_POST['delete'])){
-  $querystring='DELETE FROM Food WHERE id=:id';
-  $stmt=$pdo->prepare($querystring);
-  $stmt->bindParam(':id',$_POST['id']);
-  $stmt->execute();
+  $querystring3='DELETE FROM Food WHERE id=:id';
+  $stmt3=$pdo->prepare($querystring3);
+  $stmt3->bindParam(':id',$_POST['id']);
+  $stmt3->execute();
   header('Location:index.php');
 }
 
@@ -119,7 +119,7 @@ if(isset($_POST['delete'])){
     <td><?php echo $row['fdescription'];?></td>
     <td><?php echo $row['price'];?></td>
     <td class="fix">
-      <a href="add_menu.php?id=<?php echo $row['id']; ?>">Update</a>
+      <a href="add_dish.php?id=<?php echo $row['id']; ?>">Update</a>
     </td>
      <td class="fix">
       <form action="index.php" method='post'>

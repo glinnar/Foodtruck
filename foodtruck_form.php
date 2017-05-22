@@ -49,7 +49,7 @@ if (isset($_POST['add'])) {
       $stmt->bindParam(':location', $location);
       $stmt->bindParam(':homepage', $homepage);
       $stmt->execute();
-    header('Location: foodtruck_form.php');
+    header('Location: index.php');
   }
 }
 //Update Foodtruck
@@ -90,6 +90,7 @@ if(isset($_POST['update'])){
         <li><a href="index.php">Start</a></li>
         <li><a href="foodtruck_form.php">Skapa Foodtruck</a></li>
             <li><a href="add_menu.php">Skapa Meny</a></li>
+                    <li><a href="add_dish.php">Skapa rätt</a></li>
       </ul>
     </nav>
 
