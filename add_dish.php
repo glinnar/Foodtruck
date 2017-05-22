@@ -5,11 +5,11 @@ include_once "functions.php";
 $error=[];
 
 if(isset($_GET['id'])){
-$query3="SELECT * FROM Food WHERE id=:id";
-$stmt3=$pdo->prepare($query3);
-$stmt3->bindParam(':id',$_GET['id']);
-$stmt3->execute();
-$result3=$stmt3->fetchAll();
+  $query3="SELECT * FROM Food WHERE id=:id";
+  $stmt3=$pdo->prepare($query3);
+  $stmt3->bindParam(':id',$_GET['id']);
+  $stmt3->execute();
+  $result3=$stmt3->fetchAll();
 echo debug($result3);
 }
 //Addin new Dish to Menu
