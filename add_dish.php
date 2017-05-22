@@ -10,9 +10,9 @@ $stmt3=$pdo->prepare($query3);
 $stmt3->bindParam(':id',$_GET['id']);
 $stmt3->execute();
 $result3=$stmt3->fetchAll();
-     echo debug($result3);
+echo debug($result3);
 }
-//Addins new Dish to Menu
+//Addin new Dish to Menu
 if(isset($_POST['add'])){
 if(empty($_POST['fname'])){
   $error['fname']="Name is required";
@@ -27,14 +27,16 @@ else{
     $fname = clear_input($_POST['fname']);
     $fdescription = clear_input($_POST['fdescription']);
     $price = clear_input($_POST['price']);
+
     $querystring3='INSERT INTO Food (fname,fdescription,price)
     VALUES(:fname,:fdescription,:price)';
-    $stm3t= $pdo->prepare($querystring3);
+
+    $stmt3 = $pdo->prepare($querystring3);
     $stmt3->bindParam(':fname',$fname);
     $stmt3->bindParam(':fdescription',$fdescription);
     $stmt3->bindParam(':price',$price);
     $stmt3->execute();
-    header('Location:index.php');
+  header('Location:index.php');
   }
 }
 
@@ -43,16 +45,15 @@ if(isset($_POST['update'])){
   $fdescription = clear_input($_POST['fdescription']);
   $price = clear_input($_POST['price']);
   $querystring3='UPDATE Food SET fname=:fname';
-  $stmt3=$pdo->prepare($querystring3);
+  $stmt3 =$pdo->prepare($querystring3);
   $stmt3->bindParam(':fname',$fname);
   $stmt3->bindParam(':fdescription',$fdescription);
   $stmt3->bindParam(':price',$fdescription);
   $stmt3->execute();
-  header('Location:index.php');
+header('Location:index.php');
 }
 
 ?>
-
 
 <html lang="sv">
 <head>
@@ -89,7 +90,7 @@ if(isset($_POST['update'])){
   </form>
 </div>
 <footer>
-<h1>Find a foodtruck</h1>
+  <h1>Find a foodtruck</h1>
 </footer>
 </div>
 </body>
