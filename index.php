@@ -14,17 +14,17 @@ if (isset($_POST['delete'])) {
 }
 
 if (isset($_POST['delete'])) {
-  $querystring2 = 'DELETE FROM Menu WHERE id = :id';
-  $stmt2 = $pdo->prepare($querystring2);
-  $stmt2->bindParam(':id', $_POST['id']);
-  $stmt2->execute();
+  $querystring = 'DELETE FROM Menu WHERE id = :id';
+  $stmt = $pdo->prepare($querystring);
+  $stmt->bindParam(':id', $_POST['id']);
+  $stmt->execute();
   header('Location: index.php');
 }
 if(isset($_POST['delete'])){
-  $querystring3='DELETE FROM Food WHERE id=:id';
-  $stmt3=$pdo->prepare($querystring3);
-  $stmt3->bindParam(':id',$_POST['id']);
-  $stmt3->execute();
+  $querystring='DELETE FROM Food WHERE id=:id';
+  $stmt=$pdo->prepare($querystring);
+  $stmt->bindParam(':id',$_POST['id']);
+  $stmt->execute();
   header('Location:index.php');
 }
 

@@ -20,10 +20,10 @@ if(isset($_POST['add'])){
   }
   else{
       $mname = clear_input($_POST['mname']);
-      $querystring2='INSERT INTO Menu(mname)VALUES(:mname)';
-        $stmt2 = $pdo->prepare($querystring2);
-        $stmt2 ->bindParam(':mname',$mname);
-        $stmt2->execute();
+      $querystring='INSERT INTO Menu(mname)VALUES(:mname)';
+        $stmt = $pdo->prepare($querystring);
+        $stmt ->bindParam(':mname',$mname);
+        $stmt->execute();
           header('Location:index.php');
   }
 }
@@ -32,10 +32,10 @@ if(isset($_POST['add'])){
 //Update new Menu
 if(isset($_POST['update'])){
   $mname = clear_input($_POST['mname']);
-  $querystring2='UPDATE Menu SET mname=:mname';
-    $stmt2 =$pdo->prepare($querystring2);
-    $stmt2 ->bindParam(':mname',$mname);
-    $stmt2->execute();
+  $querystring='UPDATE Menu SET mname=:mname';
+    $stmt =$pdo->prepare($querystring);
+    $stmt ->bindParam(':mname',$mname);
+    $stmt->execute();
         header('Location: index.php');
   }
 
@@ -63,7 +63,7 @@ if(isset($_POST['update'])){
 
   <form action="add_menu.php" method="post">
     <label for="mname">Menunamn</label>
-    <input type="text" id="mname" name="mname" value="<?php if(isset($result2)){ echo $result2['0']['mname']; } ?>"/>
+    <input type="text" id="mname" name="mname" value="<?php if(isset($result)){ echo $result['0']['mname']; } ?>"/>
     <?php if(isset($_GET['id'])) { ?>
     <input type="submit" name="update" value="Update">
     <?php } else { ?>
