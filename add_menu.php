@@ -41,24 +41,7 @@ if(isset($_POST['update'])){
 
  ?>
 
- <html lang="sv">
- <head>
-   <title>Foodtruck</title>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="CSS/style.css">
- </head>
- <body>
-   <div id="wrapper">
-     <header></header>
-     <nav>
-       <ul class="menu">
-         <li><a href="index.php">Start</a></li>
-         <li><a href="foodtruck_form.php">Skapa Foodtruck</a></li>
-            <li><a href="add_menu.php">Skapa Meny</a></li>
-              <li><a href="add_dish.php">Skapa rätt</a></li>
-       </ul>
-     </nav>
+<?php include "header.php";?>
 <div id="content">
 
   <form action="add_menu.php" method="post">
@@ -72,10 +55,4 @@ if(isset($_POST['update'])){
   </form>
 
 
-</div>
-<footer>
-<h1>Find a foodtruck</h1>
-</footer>
-</div>
-</body>
-</html>
+<?php include "footer.php";?>

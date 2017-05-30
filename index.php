@@ -14,42 +14,22 @@ if (isset($_POST['delete'])) {
 }
 
 if (isset($_POST['delete'])) {
-  $querystring = 'DELETE FROM Menu WHERE id = :id';
-  $stmt = $pdo->prepare($querystring);
-  $stmt->bindParam(':id', $_POST['id']);
-  $stmt->execute();
+  $querystring2 = 'DELETE FROM Menu WHERE id = :id';
+  $stmt2 = $pdo->prepare($querystring2);
+  $stmt2->bindParam(':id', $_POST['id']);
+  $stmt2->execute();
   header('Location: index.php');
 }
 if(isset($_POST['delete'])){
-  $querystring='DELETE FROM Food WHERE id=:id';
-  $stmt=$pdo->prepare($querystring);
-  $stmt->bindParam(':id',$_POST['id']);
-  $stmt->execute();
+  $querystring3='DELETE FROM Food WHERE id=:id';
+  $stmt3=$pdo->prepare($querystring3);
+  $stmt3->bindParam(':id',$_POST['id']);
+  $stmt3->execute();
   header('Location:index.php');
 }
 
 ?>
-<html lang="sv">
-<head>
-  <title>Gurra</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="CSS/style.css">
-</head>
-<body>
-  <div id="wrapper">
-    <header></header>
-
-    <nav>
-      <ul class="menu">
-        <li><a href="index.php">Start</a></li>
-        <li><a href="foodtruck_form.php">Skapa Foodtruck</a></li>
-            <li><a href="add_menu.php">Skapa Meny</a></li>
-                <li><a href="add_dish.php">Skapa rätt</a></li>
-      </ul>
-    </nav>
-
-    <div id="content">
+<?php include "header.php";?>
       <table border="1">
         <tr>
           <th>Namn</th>
@@ -119,7 +99,7 @@ if(isset($_POST['delete'])){
     <td><?php echo $row['fdescription'];?></td>
     <td><?php echo $row['price'];?></td>
     <td class="fix">
-      <a href="add_dish.php?id=<?php echo $row['id']; ?>">Update</a>
+      <a href="add_menu.php?id=<?php echo $row['id']; ?>">Update</a>
     </td>
      <td class="fix">
       <form action="index.php" method='post'>
@@ -132,11 +112,4 @@ if(isset($_POST['delete'])){
     </table>
 
 
-    <footer>
-      <h1>Find a foodtruck</h1>
-    </footer>
-  </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-      <script type="text/javascript" src="JS/funcs.js"></script>
-</body>
-</html>
+<?php include "footer.php";?>

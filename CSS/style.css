@@ -241,6 +241,10 @@ textarea{
   input[type=submit]:hover{
     background-color: #222;
   }
+  .style{
+color: #009933;
+
+  }
   table a:link,a:visited{
     background-color: #009933;
     color:white;

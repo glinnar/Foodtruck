@@ -1,7 +1,16 @@
 drop database truck;
 create database truck;
 USE truck;
+CREATE TABLE Users(
+`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+`firstname` varchar(40),
+`lastname`varchar(40),
+`username`varchar(40),
+`password`char(15),
 
+PRIMARY KEY(`id`)
+
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 CREATE TABLE Menu(
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 `mname` varchar(100),
