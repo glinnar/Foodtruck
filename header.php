@@ -14,8 +14,11 @@
       <ul class="menu">
         <li><a href="index.php">Start</a></li>
         <li><a href="foodtruck_form.php">Skapa Foodtruck</a></li>
-            <li><a href="add_menu.php">Skapa Meny</a></li>
-                <li><a href="add_dish.php">Skapa rätt</a></li>
+        <li><a href="add_menu.php">Skapa Meny</a></li>
+        <li><a href="add_dish.php">Skapa rätt</a></li>
+        <li><a href="signup.php">Registrera dig</a></li>
+        <li><a href="login.php">Logga in</a></li>
+
       </ul>
     </nav>
 <div id="content">

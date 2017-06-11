@@ -110,6 +110,17 @@ if(isset($_POST['delete'])){
       <?php } ?>
     </tr>
     </table>
-
+<table border="1">
+  <tr>
+    <th>Namn</th>
+  </tr>
+  <?php foreach ($pdo->query('SELECT * FROM Users')as $row){?>
+    <tr>
+    <td><?php echo $row['firstname'];?></td>
+    <td><?php echo $row['lastname'];?></td>
+    <td><?php echo $row['username'];?></td>
+  </tr>
+</table>
+      <?php } ?>
 
 <?php include "footer.php";?>

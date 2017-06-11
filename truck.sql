@@ -9,8 +9,8 @@ CREATE TABLE Users(
 `password`char(15),
 
 PRIMARY KEY(`id`)
-
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
+
 CREATE TABLE Menu(
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 `mname` varchar(100),
@@ -42,5 +42,6 @@ INSERT INTO Food(fname,fdescription,price)
 
 SELECT * FROM Foodtruck;
 SELECT * FROM Menu;
-<SELECT * FROM Food;
+
+SELECT * FROM Users;
 
