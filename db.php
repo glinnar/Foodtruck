@@ -1,7 +1,7 @@
 <?php
 
 $servername="localhost";
-$dbname="truck";
-$username="root";
+$dbname="";
+$username="";
 $pdo = new PDO("mysql:host=$servername;dbname=$dbname",$username);
 $pdo->setAttribute( PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
